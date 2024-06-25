@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+.filterAction {
+    background-color: $colour-grey;
+    border-radius: $btn-border-radius;
+    max-width: $btn-sm-width;
+    padding: $spacing-xs;
+    margin: $spacing-xs;
+    cursor: pointer;
+}
+
+.form-check-input {
+    cursor: pointer;
+}

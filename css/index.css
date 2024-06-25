@@ -1,3 +1,14 @@
+.filterAction {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 22px;
+  max-width: 100px;
+  padding: 6px;
+  margin: 6px;
+  cursor: pointer;
+}
 
+.form-check-input {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=index.css.map */
