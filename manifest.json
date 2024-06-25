@@ -1,0 +1,16 @@
+{
+    "name": "Email Highlighter",
+    "version": "0.0.1",
+    "description": "Highlights emails that match criteria given by the user",
+    "permissions": [
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "index.js"
+            ]
+        }
+    ],
+    "manifest_version": "3"
+}
