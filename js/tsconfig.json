@@ -1,0 +1,11 @@
+{
+    "include": [
+        "*.ts",
+        "models/*.ts"
+    ],
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "CommonJS",
+        "sourceMap": true
+    }
+}
