@@ -15,4 +15,8 @@ body {
   cursor: pointer;
 }
 
+.filters {
+  min-width: fit-content;
+}
+
 /*# sourceMappingURL=index.css.map */

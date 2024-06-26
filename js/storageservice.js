@@ -39,7 +39,15 @@ var StorageServiceModule;
     var StorageService = /** @class */ (function () {
         function StorageService() {
             this.EMAIL_HIGHLIGHT_KEY = "EmailHighlight";
+            this._emailHighlightData = new DataModels.EmailHighlightData();
         }
+        Object.defineProperty(StorageService, "GetInstance", {
+            get: function () {
+                return this._instance || (this._instance = new this());
+            },
+            enumerable: false,
+            configurable: true
+        });
         StorageService.prototype.GetFilters = function () {
             return __awaiter(this, void 0, void 0, function () {
                 var promiseData, emailHighlightData, ex_1;
@@ -51,7 +59,8 @@ var StorageServiceModule;
                         case 1:
                             promiseData = _a.sent();
                             console.error("Data: ", promiseData);
-                            emailHighlightData = JSON.parse(promiseData.EMAIL_HIGHLIGHT_KEY);
+                            emailHighlightData = JSON.parse(promiseData[this.EMAIL_HIGHLIGHT_KEY]);
+                            this._emailHighlightData = emailHighlightData;
                             return [2 /*return*/, emailHighlightData];
                         case 2:
                             ex_1 = _a.sent();
@@ -62,9 +71,51 @@ var StorageServiceModule;
                 });
             });
         };
-        StorageService.prototype.SetFilters = function (data) {
+        StorageService.prototype.AddFilter = function (data) {
             return __awaiter(this, void 0, void 0, function () {
-                var jsonData, ex_2;
+                var ex_2;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            _a.trys.push([0, 2, , 3]);
+                            this._emailHighlightData.filters.push(data.filters[0]);
+                            return [4 /*yield*/, this.Set(this._emailHighlightData)];
+                        case 1:
+                            _a.sent();
+                            return [3 /*break*/, 3];
+                        case 2:
+                            ex_2 = _a.sent();
+                            console.error("Set filters failed: ".concat(ex_2));
+                            return [3 /*break*/, 3];
+                        case 3: return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        StorageService.prototype.RemoveFilter = function (id) {
+            return __awaiter(this, void 0, void 0, function () {
+                var ex_3;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            _a.trys.push([0, 2, , 3]);
+                            this._emailHighlightData.filters = this._emailHighlightData.filters.filter(function (f) { return f.id !== id; });
+                            return [4 /*yield*/, this.Set(this._emailHighlightData)];
+                        case 1:
+                            _a.sent();
+                            return [3 /*break*/, 3];
+                        case 2:
+                            ex_3 = _a.sent();
+                            console.error("Remove Filter failed: ".concat(ex_3));
+                            return [3 /*break*/, 3];
+                        case 3: return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        StorageService.prototype.Set = function (data) {
+            return __awaiter(this, void 0, void 0, function () {
+                var jsonData, ex_4;
                 var _a;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
@@ -76,8 +127,8 @@ var StorageServiceModule;
                             _b.sent();
                             return [3 /*break*/, 3];
                         case 2:
-                            ex_2 = _b.sent();
-                            console.error("Set filters failed: ".concat(ex_2));
+                            ex_4 = _b.sent();
+                            console.error("Set failed: ".concat(ex_4));
                             return [3 /*break*/, 3];
                         case 3: return [2 /*return*/];
                     }
@@ -88,3 +139,4 @@ var StorageServiceModule;
     }());
     StorageServiceModule.StorageService = StorageService;
 })(StorageServiceModule || (StorageServiceModule = {}));
+//# sourceMappingURL=storageservice.js.map
