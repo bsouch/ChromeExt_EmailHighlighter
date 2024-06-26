@@ -2,9 +2,9 @@ var UIServiceModule;
 (function (UIServiceModule) {
     var UIService = /** @class */ (function () {
         function UIService() {
+            this._storageService = new StorageServiceModule.StorageService();
         }
-        UIService.prototype.renderAllFilters = function () {
-            console.error("UIServiceModule Here.");
+        UIService.prototype.RenderAllFilters = function () {
         };
         return UIService;
     }());

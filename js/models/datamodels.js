@@ -1,5 +1,11 @@
 var DataModels;
 (function (DataModels) {
+    var EmailHighlightData = /** @class */ (function () {
+        function EmailHighlightData() {
+        }
+        return EmailHighlightData;
+    }());
+    DataModels.EmailHighlightData = EmailHighlightData;
     var Filter = /** @class */ (function () {
         function Filter() {
         }

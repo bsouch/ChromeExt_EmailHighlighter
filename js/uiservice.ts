@@ -1,13 +1,17 @@
 module UIServiceModule {
 
     export interface IUIService {
-        renderAllFilters(): void;
+        RenderAllFilters(): void;
     }
 
     export class UIService implements IUIService {
 
-        renderAllFilters(): void {
-            console.error("UIServiceModule Here.");
+        private readonly _storageService = new StorageServiceModule.StorageService();
+
+        constructor() { }
+
+        RenderAllFilters(): void {
+
         }
 
     }

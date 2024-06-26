@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+body {
+    background-color: $colour-baige;
+}
+
 .filterAction {
     background-color: $colour-grey;
     border-radius: $btn-border-radius;

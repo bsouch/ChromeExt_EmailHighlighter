@@ -12,40 +12,44 @@
 
 <body>
     <div class="container py-3">
-        <h3 class="text-center">Your filters</h3>
-        <div class="text-center filterAction">
-            <span>New Filter</span>
+        <div id="viewFilters">
+            <h3 class="text-center">Your filters</h3>
+            <div class="text-center filterAction">
+                <span>New Filter</span>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <table class="table table-borderless m-0">
+                        <tbody>
+                            <tr class="align-middle">
+                                <td>New Highlighter</td>
+                                <td>Appearance</td>
+                                <td>
+                                    <div class="text-center filterAction">
+                                        <span>Edit</span>
+                                    </div>
+                                    <div class="text-center filterAction">
+                                        <span>Delete</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="flexSwitchCheckChecked" checked>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <table id="readTable" class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Appearance</th>
-                    <th>Action</th>
-                    <th>Enabled</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="align-middle">
-                    <td>New Highlighter</td>
-                    <td>Appearance</td>
-                    <td>
-                        <div class="text-center filterAction">
-                            <span>Edit</span>
-                        </div>
-                        <div class="text-center filterAction">
-                            <span>Delete</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
-                                checked>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+        <div id="editFilter" class="hidden">
+
+        </div>
+
     </div>
 </body>
 

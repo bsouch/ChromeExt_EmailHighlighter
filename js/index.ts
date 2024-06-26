@@ -10,6 +10,6 @@
 const _uiService = new UIServiceModule.UIService();
 
 var init = () => {
-    _uiService.renderAllFilters();
+    _uiService.RenderAllFilters();
 }
 init();

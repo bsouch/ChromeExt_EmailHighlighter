@@ -1,9 +1,8 @@
 module StorageServiceModule {
 
     export interface IStorageService {
-        GetFilters(): DataModels.EmailHighlightData;
-        AddFilter(): void;
-        RemoveFilter(): void;
+        GetFilters(): Promise<DataModels.EmailHighlightData>;
+        SetFilters(data: DataModels.EmailHighlightData): void;
     }
 
     export class StorageService implements IStorageService {
@@ -12,15 +11,27 @@ module StorageServiceModule {
 
         constructor() { }
 
-        async GetFilters(): DataModels.EmailHighlightData {
-            var filters = chrome.storage.sync.get(this.EMAIL_HIGHLIGHT_KEY);
+        async GetFilters(): Promise<DataModels.EmailHighlightData> {
+            try {
+                const promiseData: any = await chrome.storage.sync.get(this.EMAIL_HIGHLIGHT_KEY);
+                console.error("Data: ", promiseData);
+                const emailHighlightData: DataModels.EmailHighlightData = JSON.parse(promiseData.EMAIL_HIGHLIGHT_KEY);
+                return emailHighlightData;
+            }
+            catch (ex) {
+                console.error("Exception thrown accessing the Chrome Storage.")
+                return new DataModels.EmailHighlightData();
+            }
+        }
 
-        }
-        AddFilter(): void {
-            throw new Error("Method not implemented.");
-        }
-        RemoveFilter(): void {
-            throw new Error("Method not implemented.");
+        async SetFilters(data: DataModels.EmailHighlightData): Promise<void> {
+            try {
+                const jsonData = JSON.stringify(data);
+                await chrome.storage.sync.set({ [this.EMAIL_HIGHLIGHT_KEY]: jsonData });
+            }
+            catch (ex) {
+                console.error(`Set filters failed: ${ex}`);
+            }
         }
 
     }

@@ -8,6 +8,6 @@
  */
 var _uiService = new UIServiceModule.UIService();
 var init = function () {
-    _uiService.renderAllFilters();
+    _uiService.RenderAllFilters();
 };
 init();
